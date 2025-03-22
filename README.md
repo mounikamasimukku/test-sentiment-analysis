@@ -29,10 +29,11 @@ This is a Streamlit-based app that predicts the sentiment of a tweet or text mes
 ---
 
 ## 📁 Project Structure
+```
 . ├── data/ │ ├── train.csv │ └── test.csv ├── images/ │ ├── wordcloud.png │ └── confusion_matrix.png ├── reports/ │ ├── sentiment_report.txt │ └── top_entities.txt ├── text_sentiment.py ├── requirements.txt └── README.md
+```
 
-
-
+---
 
 ## How to Run
 

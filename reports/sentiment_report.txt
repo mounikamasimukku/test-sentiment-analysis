@@ -1,0 +1,11 @@
+Classification Report:
+              precision    recall  f1-score   support
+Irrelevant     0.786667  0.686047  0.732919   172.000
+Negative       0.747541  0.857143  0.798599   266.000
+Neutral        0.854839  0.743860  0.795497   285.000
+Positive       0.804714  0.862816  0.832753   277.000
+accuracy       0.797000  0.797000  0.797000     0.797
+macro avg      0.798440  0.787466  0.789942  1000.000
+weighted avg   0.800687  0.797000  0.795879  1000.000
+
+Macro F1 Score: 0.790

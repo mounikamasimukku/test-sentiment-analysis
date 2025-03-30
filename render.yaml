@@ -1,10 +1,7 @@
 services:
   - type: web
     name: twitter-sentiment-app
-    env: python
+    env: docker
     plan: free
-    buildCommand: |
-      apt-get update && apt-get install -y tesseract-ocr
-      pip install -r requirements.txt
-    startCommand: streamlit run text_sentiment.py --server.port $PORT --server.enableCORS false
+    dockerfilePath: Dockerfile
     autoDeploy: true

@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: twitter-sentiment-app
+    env: python
+    plan: free
+    buildCommand: |
+      apt-get update && apt-get install -y tesseract-ocr
+      pip install -r requirements.txt
+    startCommand: streamlit run text_sentiment.py --server.port $PORT --server.enableCORS false
+    autoDeploy: true

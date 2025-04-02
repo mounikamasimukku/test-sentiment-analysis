@@ -15,8 +15,16 @@ from sklearn.metrics import classification_report, confusion_matrix, f1_score
 from PIL import Image
 import pytesseract
 
-# --- Tesseract executable path (if needed) ---
-pytesseract.pytesseract.tesseract_cmd = r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+# --- Set Tesseract path ONLY LOCALLY (skip this on Render) ---
+if os.name == 'nt':
+    pytesseract.pytesseract.tesseract_cmd = r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+  
+# --- Check Tesseract availability ---
+try:
+    version = pytesseract.get_tesseract_version()
+    st.write(f"Tesseract Version: {version}")
+except Exception as e:
+    st.error(f"Tesseract not working: {e}")
 
 # --- Ensure necessary NLTK resources are available ---
 try:
@@ -144,6 +152,11 @@ if st.button("Predict Sentiment"):
     elif image_file is not None:
         image = Image.open(image_file)
         extracted_text = pytesseract.image_to_string(image).strip()
+
+        # 👇 Debug: Show OCR text
+        st.write("🔍 **Extracted Text from Image:**")
+        st.code(extracted_text)
+
         if not extracted_text:
             st.warning("No text found in the image. Please upload an image with readable text.")
         else:
